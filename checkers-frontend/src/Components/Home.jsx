@@ -12,7 +12,7 @@ export default function Home(){
 				list.push(<div id={`${rowNum}-${i}`} className="square white" onClick={ValidateClick}></div>);
 			}
 			else {
-				list.push(<div id={`${rowNum}-${i}`} className="square black" onClick={ValidateClick}><div className={"black-piece piece"}></div></div>);
+				list.push(<div id={`${rowNum}-${i}`} className="square black" onClick={ValidateClick}><div className={"white-piece piece"}></div></div>);
 			}
 		}
 		const row = <div className={"checkers-row"}>{list}</div>;

@@ -1,6 +1,8 @@
-﻿namespace Checkers.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Checkers.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser : IdentityUser
     {
     }
 }
