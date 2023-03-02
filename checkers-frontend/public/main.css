@@ -52,6 +52,7 @@
     gap: 10rem;
     justify-content: center;
     align-items: center;
+    text-align: center;
     min-height: calc(100vh - 66px);
 }
 
@@ -161,12 +162,24 @@
     flex-direction: column;
 }
 
+.home-page-flex{
+    width: 56vh;
+    height: 56vh;
+}
+
 @media (min-width:1000px){
     .home-page-grid{
         padding: 3rem;
         border: 1px solid #989795;
         border-radius: 1.5rem;
     }
+
+    .home-page-flex{
+        padding: 3rem;
+        border: 1px solid #989795;
+        border-radius: 1.5rem;
+    }
+
     #game-div {
         flex-direction: row;
     }
@@ -193,11 +206,12 @@
 
     .text {
         color: white;
-        font-size: 3.5rem;
+        font-size: 5vh;
     }
 
     .home-page-btn-flex{
-        margin-top: 5vh;
+        margin-top: 4.5vh;
+        margin-bottom: 4.5vh;
         display: flex;
         justify-content: space-around;
         flex-direction: row;
