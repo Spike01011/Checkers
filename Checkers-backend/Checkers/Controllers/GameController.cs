@@ -22,7 +22,6 @@ namespace Checkers.Controllers
         public ApplicationUser Play()
         {
             throw new NotImplementedException();
-
         }
 
         public void PlayRound() { }
@@ -33,7 +32,7 @@ namespace Checkers.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return Ok();
         }
     }
 }

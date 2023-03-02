@@ -2,6 +2,13 @@
 using Checkers.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Checkers.Models.Interfaces;
+
 
 namespace Checkers;
 
@@ -26,28 +33,30 @@ public class Startup
             .AddDefaultTokenProviders();
 
         //Authentication
-        //services.AddAuthentication(option =>
-        //{
-        //    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        //    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        //    option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-        //}).AddJwtBearer(tokenAna =>
-        //{
-        //    tokenAna.SaveToken = true;
-        //    tokenAna.RequireHttpsMetadata = false;
-        //    tokenAna.TokenValidationParameters =
-        //    new TokenValidationParameters()
-        //    {
-        //        ValidateIssuer = false,
-        //        ValidateAudience = true,
-        //        ValidAudience = Configuration["JWT:ValidAudience"],
-        //        ValidIssuer = Configuration["JWT:ValidIssuer"],
-        //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-        //    };
-        //});
+        services.AddAuthentication(option =>
+        {
+            option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(tokenAna =>
+        {
+            tokenAna.SaveToken = true;
+            tokenAna.RequireHttpsMetadata = false;
+            tokenAna.TokenValidationParameters =
+            new TokenValidationParameters()
+            {
+                ValidateIssuer = false,
+                ValidateAudience = true,
+                ValidAudience = Configuration["JWT:ValidAudience"],
+                ValidIssuer = Configuration["JWT:ValidIssuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+            };
+        });
 
         services.AddScoped<IServiceProvider, ServiceProvider>();
         services.AddScoped<IServiceCollection, ServiceCollection>();
+        services.AddScoped<IAccountRepository, AccountRepository>();
+
 
         services.AddControllersWithViews();
         services.AddCors(options =>

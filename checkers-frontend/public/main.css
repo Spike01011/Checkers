@@ -59,6 +59,11 @@
     background-image: url("Assets/black.png");
 }
 
+.register-form{
+    border-radius: 25px;
+    background-color: lightgray;
+}
+
 .white-piece{
     background-image: url("Assets/red.png");
 }
@@ -78,10 +83,7 @@
     height: 70%;
 }
 
-.login-grid {
-    border: 1px solid #989795;
-    padding: 3rem;
-    border-radius: 1.5rem;
+.home-page-grid {
     display: grid;
     grid-template-columns: repeat(5, 4vw);
     grid-template-rows: 10vh 15vh 5vh 5vh 5vh;
@@ -119,12 +121,12 @@
     min-width: 30vw;
 }
 
-.login-grid  div{
+.home-page-grid  div{
     color: white;
     max-width: 30vw;
 }
 
-.text {
+.home-page-grid-text {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -142,11 +144,33 @@
     color: #989795;
 }
 
+.dark-input {
+    background-color: #312e2b;
+    border-color: #212529;
+}
+
+.signupDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 66px);
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width:1000px){
+    .home-page-grid{
+        padding: 3rem;
+        border: 1px solid #989795;
+        border-radius: 1.5rem;
+    }
     #game-div {
         flex-direction: row;
     }
-    .login-grid {
+    .home-page-grid {
         gap: 0 0;
     }
     .navbar-font-size{
@@ -168,10 +192,26 @@
     }
 
     .text {
+        color: white;
         font-size: 3.5rem;
     }
 
-    .login-grid {
+    .home-page-btn-flex{
+        margin-top: 5vh;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .home-page-btn-left{
+        width: 5vw;
+    }
+
+    .home-page-btn-right{
+        width: 5vw;
+    }
+
+    .home-page-grid {
         row-gap: 1rem;
         column-gap: 0;
     }
