@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Text;
+using Checkers.Hubs;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Checkers.Models.Interfaces;
+using Microsoft.AspNetCore.SignalR;
 
 
 namespace Checkers;
@@ -67,7 +69,8 @@ public class Startup
             });
         });
         services.AddHttpContextAccessor();
-        var lol = services.BuildServiceProvider();
+        //var lol = services.BuildServiceProvider();
+        services.AddSignalR();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -103,6 +106,9 @@ public class Startup
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            endpoints.MapHub<GameHub>("/game-hub");
         });
+
     }
 }

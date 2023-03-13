@@ -11,6 +11,7 @@ namespace Checkers.Controllers
 
         public string Host()
         {
+
             throw new NotImplementedException();
         }
 
