@@ -44,9 +44,9 @@
     gap: 0;
 }
 
-#game-div {
+.game-div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-top: 5rem;
     padding-bottom: 5rem;
     gap: 10rem;
@@ -137,6 +137,22 @@
     text-align: center;
 }
 
+#room-code{
+    border: 1px solid #989795;
+    border-radius: 1.5rem;
+    padding: 2rem;
+}
+
+.code{
+    /*font-style: italic;*/
+    font-weight: bold;
+    /*background: -webkit-linear-gradient(yellow, red);*/
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*text-decoration-line: underline;*/
+}
+
 .bold-text{
     font-weight: bold;
 }
@@ -162,11 +178,6 @@
     flex-direction: column;
 }
 
-.home-page-flex{
-    width: 56vh;
-    height: 56vh;
-}
-
 @media (min-width:1000px){
     .home-page-grid{
         padding: 3rem;
@@ -175,14 +186,18 @@
     }
 
     .home-page-flex{
+        width: 56vh;
+        height: 56vh;
         padding: 3rem;
         border: 1px solid #989795;
         border-radius: 1.5rem;
     }
 
-    #game-div {
-        flex-direction: row;
+    #match-div {
+        gap: 2rem;
+        flex-direction: column;
     }
+
     .home-page-grid {
         gap: 0 0;
     }

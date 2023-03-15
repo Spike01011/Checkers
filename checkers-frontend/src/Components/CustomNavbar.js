@@ -44,10 +44,6 @@ export default function CustomNavbar(){
 
 	const [user, setUser] = useState(localStorage.getItem("user") || null);
 
-	// useEffect(() => {
-	// 		setUser(localStorage.getItem("user"));
-	// }, []);
-
 	window.addEventListener("storage", () => {
 		setUser(localStorage.getItem("user") || null);
 	})
@@ -67,10 +63,13 @@ export default function CustomNavbar(){
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#">Host</a>
+							<a className="nav-link active" aria-current="page" href="/host-game">Host</a>
 						</li>
 						<li className="nav-item">
 							<a className="nav-link active" aria-current="page" href="#">Join</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link active" aria-current="page" href="/chat">Chat</a>
 						</li>
 						<li className="nav-item">
 							<a className="nav-link disabled">Ranked</a>

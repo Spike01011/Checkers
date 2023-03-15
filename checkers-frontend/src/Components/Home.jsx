@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import CreateBoard from "./CreateBoard";
+import axios from "axios";
+import HostGameComponent from "./HostGameComponent";
 
 export default function Home(){
+
+	axios.get("https://localhost:7041/").then(res => console.log(res));
 
 	function DisplayHomePage(){
 		if (localStorage.getItem("user")){
@@ -10,7 +14,7 @@ export default function Home(){
 				<div className="home-page-flex">
 					<div className="text"><span>Available Now: </span> </div>
 					<div className="home-page-btn-flex">
-						<Link id="host-btn" type={"button"} to={"/#"} className="btn btn-lg btn-outline-primary home-page-btn-left">Host</Link>
+						<Link id="host-btn" type={"button"} to={"/host-game"} className="btn btn-lg btn-outline-primary home-page-btn-left">Host</Link>
 						<Link type={"button"} to={"/#"} className="btn btn-lg btn-outline-success home-page-btn-right">Join</Link>
 					</div>
 					<div className="text"><span>In Progress: </span> </div>
@@ -35,7 +39,7 @@ export default function Home(){
 	}
 
 	return(
-		<div id={"game-div"}>
+		<div id={"game-div"} className={"game-div"}>
 			<div className={"checkers-board"}>
 				{CreateBoard()}
 			</div>

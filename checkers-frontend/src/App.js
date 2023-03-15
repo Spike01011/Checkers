@@ -6,6 +6,8 @@ import Home from "./Components/Home";
 import SignUpComponent from "./Components/SignUpComponent";
 import LogInComponent from "./Components/LogInComponent";
 import LogOutComponent from "./Components/LogOutComponent";
+import Chat from "./Components/ChatComponents/Chat";
+import HostGameComponent from "./Components/GameComponents/HostGameComponent";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
 				<Route path="/register" element={<SignUpComponent/>}/>
 				<Route path="/login" element={<LogInComponent/>}/>
 				<Route path="/logout" element={<LogOutComponent/>}/>
+				<Route path="/chat" element={<Chat/>} />
+				<Route path="/host-game" element={<HostGameComponent/>} />
 				{/*<Route path="/about" element={<About/>}/>*/}
 				{/*<Route path="/contact" element={<Contact/>}/>*/}
 			</Routes></main>
