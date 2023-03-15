@@ -30,7 +30,7 @@ namespace Checkers.Controllers
             {
                 user = await _accountRepo.GetByMail(userEmail.Value);
             }
-            if (user != null )
+            if (user != null)
             {
 
                 var room = _roomRepo.CreateRoom();

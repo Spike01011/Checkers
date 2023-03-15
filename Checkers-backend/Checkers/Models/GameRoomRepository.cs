@@ -37,5 +37,39 @@ namespace Checkers.Models
         {
             return GameRooms.Where(x => x.Players.Contains(player)).FirstOrDefault();
         }
+
+        public void SetRoomPlayersIdByEmail(string email, string signalrId)
+        {
+            var room = GameRooms.Where(x => x.Players.Any(player => player.User.Email == email)).FirstOrDefault();
+            if (room != null)
+            {
+                if (room.Players[0] != null)
+                {
+                    if (room.Players[0].User.Email == email)
+                    {
+                        room.Players[0].SignalrId = signalrId;
+                    }
+                    else if (room.Players[1].User.Email == email)
+                    {
+                        room.Players[1].SignalrId = signalrId;
+                    }
+                }
+            }
+        }
+
+        public GameRoom GetRoomByPlayerId(string signalrId)
+        {
+            return GameRooms.Where(x => x.Players.Any(player => player.SignalrId == signalrId)).FirstOrDefault();
+        }
+
+        public List<string> GetRoomPlayersIds(GameRoom room)
+        {
+            List<string> ids = new List<string>();
+            foreach (var player in room.Players)
+            {
+                ids.Add(player.SignalrId);
+            }
+            return ids;
+        }
     }
 }
